@@ -104,7 +104,7 @@ h2 {
     --text-color: #f1f5f9;
     --heading-text-color: #f1f5f9; /* Set to a lighter color for dark mode */
     --heading-gradient: linear-gradient(to right, #9c9cad, #8d8ff7);
-    --section-gradient: linear-gradient(135deg, #e9e9eeec 0%, #6366F1 99%);
+    --section-gradient: linear-gradient(135deg, #3f3f46 0%, #6366F1 99%);
     --border-color: #4b5563;
     --button-background-color: #818cf8;
     --button-text-color: #ffffff;
@@ -118,7 +118,7 @@ body.light-mode {
     --text-color: #333333;
     --heading-text-color: #333333; /* Set a color that contrasts well */
     --heading-gradient: linear-gradient(to right, #080963, #A5B4FC);
-    --section-gradient: linear-gradient(135deg, #d3d3d6cb 0%, #415299 99%);
+    --section-gradient: linear-gradient(135deg, #e9e9eeec 0%, #415299 99%);
     --border-color: #dddddd;
     --button-background-color: #6366F1;
     --button-text-color: #ffffff;
