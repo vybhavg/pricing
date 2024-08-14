@@ -1,0 +1,256 @@
+/* Base Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+    position: relative; /* Ensure proper stacking context */
+}
+
+.container {
+    max-width: 1000px; /* Increased max-width for larger screens */
+    margin: auto;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--heading-text-color); /* Updated to use a variable */
+    letter-spacing: 1.5px;
+    background: var(--heading-gradient); /* Updated to use a variable */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.pricing-section {
+    background: var(--section-gradient);
+    padding: 20px; /* Decreased padding */
+    border-radius: 10px; /* Reduced border-radius */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Reduced box-shadow spread */
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.5s ease;
+    z-index: 1; /* Ensure it is below the toggle button */
+    margin: 20px; /* Added margin to create space around section */
+}
+
+.pricing-section:hover {
+    transform: scale(1.03); /* Reduced scale on hover */
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0; /* Decreased margin */
+    font-size: 1rem; /* Adjusted font-size */
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px; /* Reduced border-radius */
+    overflow: hidden;
+    transition: background-color 0.3s ease;
+}
+
+/* Table Header and Cells */
+.pricing-table th, .pricing-table td {
+    padding: 12px; /* Adjusted padding */
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pricing-table th {
+    background-color: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    color: var(--text-color);
+    position: relative;
+}
+
+.pricing-table th:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+}
+
+/* Hover effect for rows */
+.pricing-table tr {
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.pricing-table tr:hover {
+    background-color: rgba(255, 255, 255, 0.3); /* Lighter hover color */
+    transform: scale(1.02); /* Slightly enlarges the row */
+}
+
+/* Fade-in Animation for Rows */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pricing-table tr {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Light Mode Variables */
+:root {
+    --background-color: #18181b;
+    --text-color: #f1f5f9;
+    --heading-text-color: #f1f5f9; /* Set to a lighter color for dark mode */
+    --heading-gradient: linear-gradient(to right, #9c9cad, #8d8ff7);
+    --section-gradient: linear-gradient(135deg, #3f3f46 0%, #6366F1 99%);
+    --border-color: #4b5563;
+    --button-background-color: #818cf8;
+    --button-text-color: #ffffff;
+    --button-hover-background-color: #6366F1;
+
+}
+
+/* Dark Mode Variables */
+body.light-mode {
+    --background-color: #ffffff;
+    --text-color: #333333;
+    --heading-text-color: #333333; /* Set a color that contrasts well */
+    --heading-gradient: linear-gradient(to right, #080963, #A5B4FC);
+    --section-gradient: linear-gradient(135deg, #d3d3d6cb 0%, #415299 99%);
+    --border-color: #dddddd;
+    --button-background-color: #6366F1;
+    --button-text-color: #ffffff;
+    --button-hover-background-color: #4F46E5;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.pricing-section {
+    animation: slideIn 1s ease-in-out;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .pricing-table th, .pricing-table td {
+        font-size: 14px;
+        padding: 10px; /* Adjusted padding */
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .pricing-table {
+        font-size: 12px;
+    }
+
+    button {
+        font-size: 0.8rem;
+        padding: 8px 16px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .container {
+        padding: 10px;
+    }
+}
+
+/* Toggle Switch Styles */
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    background-color: #111;
+    width: 45px;
+    height: 22px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-moon {color: #f1c40f;}
+
+.fa-sun {color: #f39c12;}
+
+.checkbox-label .ball {
+    background-color: #fff;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+    transform: translateX(24px);
+}
+
+/* Additional toggle switch styles if needed */
+.checkbox2 {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox2-label {
+    background-color: #111;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkbox2-label .ball {
+    background-color: #fff;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox2:checked + .checkbox2-label .ball {
+    transform: translateX(24px);
+}
